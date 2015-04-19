@@ -11,12 +11,12 @@ describe('BaseCtrl', function() {
 		var controller;
 
 		beforeEach(function() {
-			controller = $controller('wordCloudCtrl', { APIService: mockAPIService });	
+			controller = $controller('BaseCtrl', { TopicsService: mockTopicsService });	
 		});
 
-		it('should have called mockAPIService.getTopics', function() {
+		it('should have called mockTopicsService.getTopics', function() {
 			controller.initCloud();
-			expect(mockAPIService.getTopics).toHaveBeenCalled();
+			expect(mockTopicsService.getTopics).toHaveBeenCalled();
 		});
 	});
 });

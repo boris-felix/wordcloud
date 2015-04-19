@@ -1,7 +1,7 @@
-app.factory('TopicsService', function($http) {
+app.factory('TopicsService', ['BaseService', function(BaseService, $http) {
 	return {
 		getTopics: function() {
-			return $http.get('statics/topics.json');
+			return BaseService.get('statics/topics.json');
 		}
 	}
-});
+}]);
