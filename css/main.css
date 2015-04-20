@@ -154,8 +154,9 @@ nav a:hover {
    Author's custom styles
    ========================================================================== */
 
-
-
+#cloud a { color: #313131; }
+#cloud .positive { color: green; }
+#cloud .negative { color: red; }
 
 
 
