@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      foo: {
+      build: {
         src: [
           'app/main.js',
           'app/service/Base.js',
@@ -17,7 +17,10 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+        compress: {
+          drop_console: true
+        }
       },
       build: {
         src: [
@@ -30,14 +33,26 @@ module.exports = function(grunt) {
         ],
         dest: 'build/<%= pkg.name %>.min.js'
       }
+    },
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          'build/index.min.css': ['css/*.css']
+        }
+      }
     }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'jshint']);
+  grunt.registerTask('default', ['uglify', 'jshint', 'cssmin']);
 
 };
