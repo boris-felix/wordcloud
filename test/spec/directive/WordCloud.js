@@ -4,22 +4,20 @@ describe('WordCloud directive', function() {
 	var $compile;
 	var $rootScope;
 	var element;
+	var $http;
+	var $scope;
 
-	beforeEach(inject(function(_$compile_, _$rootScope_){
+	beforeEach(inject(function(_$compile_, _$rootScope_, _$httpBackend_){
 		$compile = _$compile_;
 		$rootScope = _$rootScope_;
+		$http = _$httpBackend_
+		$scope = $rootScope.$new();
 	}));
 
-	describe('Init', function() {
-		it('should initialize correctly the directive', function() {
-			$rootScope.topics = [
-				{ id: 1, label: 'foo' },
-				{ id: 2, label: 'bar' }
-			]
-			element = $compile("<word-cloud></word-cloud>")($rootScope);
-			// Fire watch events
-			$rootScope.$digest();
-			expect(element.html()).toEqual('bar');
-		});
+	it('should initialize by calling the right template', function() {
+		var url = 'tpl/wordcloud';
+		$http.when('GET', url).respond('foo');
+		element = $compile("<word-cloud></word-cloud>")($rootScope);
+		$http.expectGET(url);
 	});
 });
