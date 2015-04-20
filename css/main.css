@@ -75,13 +75,13 @@ body {
 
 .footer-container,
 .main aside {
-    border-top: 20px solid #e44d26;
+    border-top: 20px solid #e1e1e1;
 }
 
 .header-container,
 .footer-container,
 .main aside {
-    background: #f16529;
+    background: #eeeeee;
 }
 
 .title {
@@ -133,7 +133,7 @@ nav a:hover {
 }
 
 .main aside {
-    color: white;
+    color: #000000;
     padding: 0px 5% 10px;
 }
 
@@ -154,12 +154,18 @@ nav a:hover {
    Author's custom styles
    ========================================================================== */
 
-#cloud a { color: #313131; }
-#cloud .positive { color: green; }
-#cloud .negative { color: red; }
+#cloud li { list-style: none; float: left; margin: 5px; }
 
+.tag { color: #313131; }
+.positive { color: green; }
+.negative { color: red; }
 
-
+.famous-level5 { font-size: 100px; }
+.famous-level4 { font-size: 80px; }
+.famous-level3 { font-size: 55px; }
+.famous-level2 { font-size: 35px; }
+.famous-level1 { font-size: 20px; }
+.famous-level0 { font-size: 10px; }
 
 
 
@@ -240,12 +246,12 @@ nav a:hover {
 
     .main article {
         float: left;
-        width: 57%;
+        width: 40%;
     }
 
     .main aside {
         float: right;
-        width: 28%;
+        width: 40%;
     }
 }
 
