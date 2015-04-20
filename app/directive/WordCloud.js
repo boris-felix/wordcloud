@@ -11,12 +11,13 @@ app.directive('wordCloud', function() {
 	this.updateCloud = function(scope, element) {
 		scope.$watch('topics', function(topics){
 			_.each(topics, function(topic) {
-				element.text(topic.label);
-			})
+				//element.text(topic.label);
+			});
 		});
 	}
 
 	return {
-		link: this.updateCloud
+		link: this.updateCloud,
+		templateUrl: 'tpl/wordcloud'
 	};
 });

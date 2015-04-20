@@ -26,8 +26,10 @@
         <div class="main-container">
             <div ng-controller="BaseCtrl" class="main wrapper clearfix">
 
-                <article id="cloud" word-cloud></article>
-                <aside class="hidden"></aside>
+                <article id="cloud">
+                    <ul word-cloud></ul>
+                </article>
+                <aside class="hidden" description></aside>
 
             </div> <!-- #main -->
         </div> <!-- #main-container -->
@@ -39,8 +41,11 @@
         <script src="app/lib/angular/angular.min.js"></script>
         <script src="app/lib/angular-resource/angular-resource.js"></script>
         <script src="app/main.js"></script>
+        <script src="app/model/Topics.js"></script>
         <script src="app/service/Base.js"></script>
         <script src="app/service/Topics.js"></script>
+        <script src="app/directive/Tag.js"></script>
+        <script src="app/directive/Description.js"></script>
         <script src="app/directive/WordCloud.js"></script>
         <script src="app/controller/BaseCtrl.js"></script>
     </body>
