@@ -1,7 +1,7 @@
 /**
  * Tag directive controller
  */
-app.controller('TagCtrl', function($scope, $rootScope) {
+app.controller('TagCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
 	var POSITIVE_LIMIT = 60;
 	var NEGATIVE_LIMIT = 40;
 	// Total number size words can have into the cloud
@@ -15,7 +15,7 @@ app.controller('TagCtrl', function($scope, $rootScope) {
 		$rootScope.currentTopic = $scope.topic;
 		// Force the rootScope to watch the updates over the topic field
 		$rootScope.$digest();
-	}
+	};
 
 	/**
 	 * Called every time the sizeCls field of a topic is updated
@@ -25,7 +25,7 @@ app.controller('TagCtrl', function($scope, $rootScope) {
 		if (element) {
 			element.addClass(sizeCls);
 		}
-	}
+	};
 
 	/**
 	 * Volume into the set of data are not linear. We do that to have a real mix of words sizes
@@ -44,9 +44,9 @@ app.controller('TagCtrl', function($scope, $rootScope) {
 			return {
 				volume: b * intervals + lowerVol,
 				cls: 'famous-level'+(b+1)
-			}
+			};
 		});
-	}
+	};
 
 	/**
 	 * Get the right class depending on the topic volume
@@ -68,7 +68,7 @@ app.controller('TagCtrl', function($scope, $rootScope) {
 		});
 
 		return cls;
-	}
+	};
 
 	/**
 	 * Listen to events related to each words in the cloud
@@ -78,7 +78,7 @@ app.controller('TagCtrl', function($scope, $rootScope) {
 	$scope.listenEvents = function(scope, element) {
 		element.bind('click', $scope.onTagClick.bind(this));
 		scope.$watch('topic.sizeCls', $scope.onSizeClsUpdate.bind(this, element));
-	}
+	};
 
 	/**
 	 * Setting a class on the word depending of the topic sentiment score
@@ -91,7 +91,7 @@ app.controller('TagCtrl', function($scope, $rootScope) {
 		} else if (topic.sentimentScore < NEGATIVE_LIMIT) {
 			element.addClass('negative');
 		}
-	}
+	};
 
 	/**
 	 * Creating the sizeCls field which will be used later
@@ -108,5 +108,5 @@ app.controller('TagCtrl', function($scope, $rootScope) {
 		} else {
 			topic.sizeCls = $scope.findSizeCls(topic.volume);
 		}
-	}
-});
+	};
+}]);

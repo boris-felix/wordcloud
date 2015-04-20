@@ -1,7 +1,7 @@
 /**
  * Tag directive. Each word in the cloud can be managed by itself
  */
-app.directive('tag', function($rootScope) {
+app.directive('tag', ['$rootScope', function($rootScope) {
 	return {
 		controller: 'TagCtrl',
 		/**
@@ -18,5 +18,5 @@ app.directive('tag', function($rootScope) {
 			scope.setSentimentScoreClass(scope.topic, element);
 			scope.applySizeCls(scope.topic);
 		}
-	}
-});
+	};
+}]);

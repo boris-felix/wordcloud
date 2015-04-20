@@ -1,7 +1,7 @@
 /**
  * Description directive
  */
-app.directive('description', function($rootScope) {
+app.directive('description', ['$rootScope', function($rootScope) {
 	/**
 	 * Set current topic to the local scope
 	 * @param scope
@@ -11,7 +11,7 @@ app.directive('description', function($rootScope) {
 		if (topic) {
 			scope.topic = topic;
 		}
-	}
+	};
 
 	/**
 	 * Watching topic field updates
@@ -21,10 +21,10 @@ app.directive('description', function($rootScope) {
 	 */
 	this.init = function(scope, element, attr) {
 		$rootScope.$watch('currentTopic', this.setCurrentTopic.bind(this, scope));
-	}
+	};
 
 	return {
 		link: this.init,
 		templateUrl: 'tpl/description'
-	}
-});
+	};
+}]);

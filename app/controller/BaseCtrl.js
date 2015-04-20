@@ -10,7 +10,7 @@ app.controller('BaseCtrl', ['TopicsService', '$rootScope', function(TopicsServic
         return _.max(topics, function(topic) {
             return topic.volume;
         });
-    }
+    };
 
     /**
      * Get the less popular topic
@@ -20,20 +20,20 @@ app.controller('BaseCtrl', ['TopicsService', '$rootScope', function(TopicsServic
         return _.min(topics, function(topic) {
             return topic.volume;
         });
-    }
+    };
 
     this.onTopicsUpdate = function(result) {
         $rootScope.higher = this.getHigherVolume(result.topics);
         $rootScope.lower = this.getLowerVolume(result.topics);
         $rootScope.topics = result.topics;
-    }
+    };
 
     /**
      * Initializing the word cloud
      */
     this.initCloud = function() {
         TopicsService.getTopics().then(this.onTopicsUpdate.bind(this));
-    }
+    };
 
     this.initCloud();
 }]);

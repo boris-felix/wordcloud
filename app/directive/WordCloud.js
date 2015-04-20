@@ -1,8 +1,8 @@
 /**
  * Word cloud directive
  */
-app.directive('wordCloud', function($rootScope) {
+app.directive('wordCloud', ['$rootScope', function($rootScope) {
 	return {
 		templateUrl: 'tpl/wordcloud'
 	};
-});
+}]);

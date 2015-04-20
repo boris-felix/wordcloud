@@ -1,4 +1,4 @@
-app.factory('BaseService', function($http, $q) {
+app.factory('BaseService', ['$http', '$q', function($http, $q) {
 	return {
 		get: function(url) {
 			var deferred = $q.defer();
@@ -12,5 +12,5 @@ app.factory('BaseService', function($http, $q) {
 			);
 			return deferred.promise;
 		}
-	}
-});
+	};
+}]);
