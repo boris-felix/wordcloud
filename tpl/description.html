@@ -1,0 +1,5 @@
+<h2>Informations on topic "{{ topic.label }}"<h2>
+<div>Total mentions: {{ topic.volume || 0 }}</div>
+<div>Positive mentions: <span class="positive">{{ topic.sentiment.positive || 0 }}</span></div>
+<div>Neutral mentions: {{ topic.sentiment.neutral || 0 }}</div>
+<div>Negative mentions: <span class="negative">{{ topic.sentiment.negative || 0 }}</span></div>
