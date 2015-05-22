@@ -22,7 +22,7 @@
         "grunt-contrib-uglify": "~0.5.0"
     },
     "scripts": {
-        "postinstall": "bower install",
+        "postinstall": "bower install; grunt",
 
         "prestart": "npm install",
         "start": "http-server -a localhost -p 8000 -c-1",
